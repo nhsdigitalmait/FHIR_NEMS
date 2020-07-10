@@ -1,0 +1,17 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+    <id value="__MESSAGEID__"/>
+    <meta>
+        <profile value="https://fhir.nhs.uk/StructureDefinition/spine-operationoutcome-1"/>
+    </meta>
+    <issue>
+        <severity value="error"/>
+        <code value="exception"/>
+        <details>
+            <coding>
+                <system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
+                <code value="INTERNAL_SERVER_ERROR"/>
+                <display value="Unexpected internal server error"/>
+            </coding>
+        </details>
+    </issue>
+</OperationOutcome>

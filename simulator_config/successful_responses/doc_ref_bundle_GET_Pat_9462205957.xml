@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<Bundle xmlns="http://hl7.org/fhir">
+	<type value="searchset"/>
+	<total value = "3"/>
+	<entry>
+		<resource>
+			<DocumentReference xmlns="http://hl7.org/fhir">
+				<id value="c037a0cb-ab12-4976-83a1-a5d2703e6aa3-1a2b3c4d5e6f7g8h9i0j"/>
+				<meta>
+					<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/NEMS-DocumentReference-1"/>
+				</meta>
+				<status value="current"/>
+				<type>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="718347002"/>
+						<display value="Mental health crisis plan (record artifact)"/>
+					</coding>
+				</type>
+				<subject>
+					<reference value="https://demographics.spineservices.nhs.uk/STU3/Patient/9462205957"/>
+				</subject>
+				<created value="2016-03-08T15:26:00+01:00"/>
+				<indexed value="2016-03-08T15:26:01+01:00"/>
+				<author>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RGD"/>
+				</author>
+				<custodian>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RR8"/>
+				</custodian>
+				<content>
+					<attachment>
+						<contentType value="application/pdf"/>
+						<url value="https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/MentalHealthCrisisPlanReport.pdf"/>
+						<title value="Mental health Crisis Plan Report"/>
+						<creation value="2016-03-08T15:26:00+01:00"/>
+					</attachment>
+				</content>
+			</DocumentReference>
+		</resource>
+	</entry>
+	<entry>
+		<resource>
+			<DocumentReference xmlns="http://hl7.org/fhir">
+				<id value="z952a0cb-ab12-4976-83a1-a5d2703e6aa3-1a2b3c4d5e6f7g8h9i0j"/>
+				<meta>
+					<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/NEMS-DocumentReference-1"/>
+				</meta>
+				<status value="current"/>
+				<type>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="718347002"/>
+						<display value="Mental health crisis plan (record artifact)"/>
+					</coding>
+				</type>
+				<subject>
+					<reference value="https://demographics.spineservices.nhs.uk/STU3/Patient/9462205957"/>
+				</subject>
+				<created value="2017-06-18T15:26:00+01:00"/>
+				<indexed value="2017-06-18T15:26:01+01:00"/>
+				<author>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RGD"/>
+				</author>
+				<custodian>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RR8"/>
+				</custodian>
+				<content>
+					<attachment>
+						<contentType value="application/pdf"/>
+						<url value="https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/MentalHealthCrisisPlanReport.pdf"/>
+						<title value="Mental health Crisis Plan Report"/>
+						<creation value="2017-06-18T15:26:01+01:00"/>
+					</attachment>
+				</content>
+			</DocumentReference>
+		</resource>
+	</entry>
+	<entry>
+		<resource>
+			<DocumentReference xmlns="http://hl7.org/fhir">
+				<id value="j23t0cb-ab12-4976-83a1-a5d2703e6aa3-1a2b3c4d5e6f7g8h9i0j"/>
+				<meta>
+					<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/NEMS-DocumentReference-1"/>
+				</meta>
+				<status value="current"/>
+				<type>
+					<coding>
+						<system value="http://snomed.info/sct"/>
+						<code value="718347002"/>
+						<display value="Mental health crisis plan (record artifact)"/>
+					</coding>
+				</type>
+				<subject>
+					<reference value="https://demographics.spineservices.nhs.uk/STU3/Patient/9462205957"/>
+				</subject>
+				<created value="2016-12-09T15:26:00+01:00"/>
+				<indexed value="2016-12-09T15:26:01+01:00"/>
+				<author>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RGD"/>
+				</author>
+				<custodian>
+					<reference value="https://directory.spineservices.nhs.uk/STU3/Organization/RR8"/>
+				</custodian>
+				<content>
+					<attachment>
+						<contentType value="application/pdf"/>
+						<url value="https://spine-proxy.national.ncrs.nhs.uk/p1.nhs.uk/MentalHealthCrisisPlanReport.pdf"/>
+						<title value="Mental health Crisis Plan Report"/>
+						<creation value="2016-12-09T15:26:00+01:00"/>
+					</attachment>
+				</content>
+			</DocumentReference>
+		</resource>
+	</entry>
+</Bundle>

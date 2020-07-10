@@ -1,0 +1,390 @@
+# Simulator rule definition file for ITK Testbench
+#  FHIR VALIDATOR SERVER
+#	Chris Berry 08/08/2019 
+#
+BEGIN RESPONSES
+
+#NEW
+#Search
+Get_via_Both_Success_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205736.xml "200 OK"
+Get_via_Both_Success_MI_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462206058.xml "200 OK"
+Get_via_Both_Success_Empty_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205787.xml "200 OK"
+Get_via_ID_Success_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_NEMS_ab12.xml "200 OK" WITH_HTTP_HEADERS ( Date : "Sat, 26 May 2018 12:34:11 GMT"  Last-Modified : "Sat, 26 May 2018 00:00:00 GMT" )
+Get_via_ID_Success_MI_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_DR_ef56.xml "200 OK"
+Get_via_ID_Success_Empty_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_DR_cd34.xml "200 OK"
+Get_via_Pat_Success_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205957.xml "200 OK"
+Get_via_Pat_Success_MI_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462206031.xml "200 OK"
+Get_via_Pat_Success_Empty_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205965.xml "200 OK"
+Get_via_SubSnomed_Success_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205906.xml "200 OK"
+Get_via_SubSnomed_Success_MI_Response		TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462206066.xml "200 OK"
+Get_via_SubSnomed_Success_Empty_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Pat_9462205914.xml "200 OK"
+Get_Count_Success_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Count_9462205922.xml "200 OK"
+Get_Count_Success_Zero_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_bundle_GET_Count_9462205981.xml "200 OK"
+#Create and Delete
+Create_Success_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/STU3/Subscription/ea0a485187204b49b978bdcf7102388c"  Etag : "W/25777f7d-27bc1"  Date : "Fri, 18 Jan 2019 16:09:50 GMT"  Last-Modified : "Fri, 18 Jan 2019 16:09:50 GMT" )
+Delete_Success_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_Delete.xml "200 OK" WITH_HTTP_HEADERS ( Date : "Sat, 26 May 2018 12:52:12 GMT" )
+Delete_MI_Success_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/doc_ref_Delete_MI.xml "200 OK"
+#Error Responses
+Invalid_NHS_Number_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_INN.xml "400 Invalid NHS Number"
+Invalid_NHS_Number_cr_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_INN_cr.xml "400 Invalid NHS Number"
+Invalid_Parameter_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_422_IP.xml "422 Invalid Parameter"
+Invalid_Resource_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_422_IR.xml "422 Invalid Resource"
+No_Record_Found_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF.xml "404 No Record Found"
+No_Record_Found_Id_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF_Ref.xml "404 No Record Found"
+No_Record_Found_MI_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF_MI.xml "404 No Record Found"
+Invalid_Request_Message_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_IRM.xml "400 Invalid Request Message"
+Organisation_Not_Found_Response 			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_ONF.xml "404 Organisation Not Found"
+Missing_Or_Invalid_Header_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH.xml "400 Missing Or Invalid Header"
+Missing_Or_Invalid_Header_cr_Response		TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH_cr.xml "400 Missing Or Invalid Header"
+Unsupported_Media_Type_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_415_UMT.xml "415 Unsupported Media Type"
+Unsupported_Media_Type_cr_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_415_UMT_cr.xml "415 Unsupported Media Type"
+Duplicate_Rejected_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_422_DR.xml "422 Duplicate Rejected"
+Internal_Server_Error_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_500_ISE.xml "500 Internal Server Error"
+#Errors added for NEMS subscriptions
+Access_Denied_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_403_AD.xml "403 Access Denied"
+ASID_Check_Failed_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_403_ACF.xml "403 ASID Check Failure"
+Bad_Request_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_BR.xml "400 Bad Request"
+Invalid_Code_Value_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_ICV.xml "400 Invalid Code Value"
+Invalid_Element_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_IE.xml "400 Invalid Element"
+Message_Not_Well_Formed_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MNWF.xml "400 Message Not Well Formed"
+Reference_Not_Found_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_422_RNF.xml "422 Reference Not Found"
+#HTTP Header Check Responses
+HTTP_From_MISSING_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH_From.xml "400 Missing Or Invalid Header"
+HTTP_To_MISSING_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH_To.xml "400 Missing Or Invalid Header"
+HTTP_Authorization_MISSING_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH_Auth.xml "400 Missing Or Invalid Header"
+#Default Response
+Delete_Bad_Request_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_BRD.xml "400 Bad Request"
+Create_Bad_Request_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_BRC.xml "400 Bad Request"
+Search_Bad_Request_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_BRS.xml "400 Bad Request"
+notFoundNEMS_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/NotFound_Trigger_NEMS.xml "200 OK"
+Conversion_Error_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_200_IVP.xml "400 Bad Request"
+#PUBLISH Responses
+publish_success_response					class:uk.nhs.digital.mait.tkwx.tk.internalservices.rules.routingactor.ackextension.SendEmptyResponse	"202 Accepted"
+publish_vaccination_success_deprecated_response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/publish_vaccination_event_deprecated.xml 202
+publish_professional_contacts_success_deprecated_response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/publish_professional_contacts_event_deprecated.xml 202
+subscription_success_deprecated_response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/subscription_event_deprecated.xml 201
+
+Patient_Not_Found_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_PNF.xml "404 Patient Not Found"
+Practitioner_Not_Found_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_PRNF.xml "404 Practitioner Not Found"
+No_Record_Found_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF.xml "404 No Record Found"
+Invalid_Identifier_System_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_IIS.xml "400 Invalid Identifier System"
+Invalid_Identifier_Value_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_IIV.xml "400 Invalid Identifier Value"
+Invalid_Code_System_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_ICS.xml "400 Invalid Code System"
+Reference_Not_Found_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_422_RNF.xml "422 Reference Not Found"
+Not_Implemented_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_501_NI.xml	"501 Not Implemented"
+
+#PreExistingServerResponses
+operation_outcome_all_other_requests					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_all_other_requests.xml 404
+operation_outcome_unsupported_verb_404					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_unsupported_verb.xml 404
+subscription_create_invalid_nhs_number_response			TKW_ROOT/config/FHIR_NEMS/simulator_config/invalid_nhs_number_response.xml 400
+subscription_create_invalid_request_message_response	TKW_ROOT/config/FHIR_NEMS/simulator_config/invalid_request_message_response.xml 400
+subscription_create_access_denied_response				TKW_ROOT/config/FHIR_NEMS/simulator_config/access_denied_response.xml 403
+subscription_create_internal_server_error_response		TKW_ROOT/config/FHIR_NEMS/simulator_config/internal_server_error_response.xml 500
+subscription_create_response0							class:uk.nhs.digital.mait.tkwx.tk.internalservices.rules.routingactor.ackextension.SendEmptyResponse	"201 Created"	WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/STU3/Subscription/00000000000000000000000000000000" )
+subscription_create_response1							class:uk.nhs.digital.mait.tkwx.tk.internalservices.rules.routingactor.ackextension.SendEmptyResponse	"201 Created"	WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/STU3/Subscription/00000000000000000000000000000001" )
+subscription_create_response2							class:uk.nhs.digital.mait.tkwx.tk.internalservices.rules.routingactor.ackextension.SendEmptyResponse	"201 Created"	WITH_HTTP_HEADERS ( Location : "https://clinicals.spineservices.nhs.uk/STU3/Subscription/00000000000000000000000000000002" )
+subscription_retrieve_response0							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_response0.xml 200 
+subscription_retrieve_response1							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_response1.xml 200 
+subscription_retrieve_response2							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_response2.xml 200 
+subscription_retrieve_cert_error						TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_response_cert_error.xml 403 
+subscription_retrieve_spine_error						TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_response_spine_error.xml 500 
+subscription_retrieve_no_record_found					TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_retrieve_no_record_found.xml 404 
+delete_response											class:uk.nhs.digital.mait.tkwx.tk.internalservices.rules.routingactor.ackextension.SendEmptyResponse	"200 OK"
+subscription_delete_cert_error							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_response_cert_error.xml 403 
+subscription_delete_spine_error							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_response_spine_error.xml 500 
+subscription_delete_no_record_found						TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_no_record_found.xml 404 
+
+do_process	NONE	0
+END RESPONSES
+
+BEGIN SUBSTITUTIONS
+__MESSAGEID__	UUID
+__TIMESTAMP__	ISO8601datetime
+__JOBID__	UUID
+__ERRORID__	UUID
+__SERVER__ Literal NHS Digital TKW Server
+__PATIENT_2__ Literal 9658218873
+__SPINEID__	UUID
+__ERRORCODE__	Literal	1000
+__ERRORTEXT__	Literal Invalid message
+__ERRORDETAIL__	Literal	Test message rejection
+__IDENTIFIER__ Literal 9999999999
+__LASTTWENTY__ Literal -1A2B3C4D5E6F7G8I9J0K
+__DELAY__ Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.DelaySubstitution "9999999999 20"
+__ERRORTEXT_IVP__ Xpath concat(substring (concat('Failed to parse request body as JSON resource. Error was: ',replace(/fhirconversionfailure,'"','&quot;')), 1, string-length(concat('Failed to parse request body as JSON resource. Error was :',replace(/fhirconversionfailure,'"','&quot;')))), substring('__ERRORTEXT_IVP__', 1, number(not(/string-length(/fhirconversionfailure))) * string-length('__ERRORTEXT_IVP__')))
+__MASTERIDSYSTEM__ Xpath /fhir:DocumentReference/fhir:masterIdentifier/fhir:system/@value
+__MASTERIDVALUE__ Xpath /fhir:DocumentReference/fhir:masterIdentifier/fhir:value/@value
+__ORGANIZATION__ Xpath substring-after(/fhir:DocumentReference/fhir:custodian/fhir:reference/@value,'Organization/')
+__RE_CP_TAG__ reg_exp context_path "^/DocumentReference(.*)$" "$1"
+__CP_NHS_NO__ reg_exp context_path "^.*Patient/([0-9]{10}).*$" "$1"
+__CP_MI__ reg_exp context_path "^.*identifier=(.*)$" "$1"
+__CP_MI1__ reg_exp context_path "^.*identifier=(.*)%7C.*$" "$1"
+__CP_MI2__ reg_exp context_path "^.*identifier=.*%7C(.*)$" "$1"
+
+END SUBSTITUTIONS
+
+# all the "match/contains" rules apply to the content by default to use eg the context path it must be specified as context_path
+BEGIN EXPRESSIONS
+Conversion_Error				xpathequals boolean(//fhirconversionfailure) true
+HTTP_From_MISSING				http_header fromASID notmatches ^.+$
+HTTP_To_MISSING					http_header toASID notmatches ^.+$
+HTTP_Authorization_MISSING		http_header Authorization notmatches ^.+$
+Get_By_ID_Bad_Request			context_path notmatches ^.*Subscription[/][a-z,A-Z,0-9]{32}$
+Get_via_ID_Success				context_path matches ^.*c037a0cbab12497683a1a5d2703e6aa3$
+Create_Invalid_Parameter 		context_path notmatches ^.*Subscription.*$
+Conversion_Error				xpathequals boolean(//fhirconversionfailure) true
+Create_Subscription_Bad_Request	context_path notmatches ^.*Subscription$
+Create_Publish_Bad_Request		context_path notmatches ^.*\/Events\/1\/\$process-message$
+Subs_Create_Success					xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9876543210')) true
+Subs_Invalid_Request_Message_cr		xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9464250321')) true
+Subs_Invalid_Resource_cr				xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9464250054')) true
+Subs_Organisation_Not_Found_cr		xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9464249935')) true
+Subs_Invalid_NHS_Number_cr			xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9464250569')) true
+Subs_Invalid_Parameter_cr			xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206007')) true
+Subs_Missing_Or_Invalid_Header_cr	xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462205973')) true
+Subs_Unsupported_Media_Type_cr		xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462205795')) true
+Subs_Duplicate_Rejected_cr			xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462207119')) true
+Subs_Internal_Server_Error_cr		xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462207127')) true
+Subs_Access_Denied_cr				xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206074')) true
+Subs_ASID_Check_Failed_cr			xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206082')) true
+Subs_Bad_Request_cr					xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206090')) true
+Subs_Invalid_Code_Value_cr			xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206104')) true
+Subs_Invalid_Element_cr				xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462206112')) true
+Subs_Message_Not_Well_Formed_cr		xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9462207100')) true
+Subs_Deprecated						xpathequals (contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value, '9674848185')) true
+
+
+Pubs_Invalid_Request_Message_cr		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9464250321
+Pubs_Invalid_Resource_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9464250054
+Pubs_Organisation_Not_Found_cr		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9464249935
+Pubs_Invalid_NHS_Number_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9464250569
+Pubs_Invalid_Parameter_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206007
+Pubs_Missing_Or_Invalid_Header_cr	xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462205973
+Pubs_Unsupported_Media_Type_cr		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462205795
+Pubs_Duplicate_Rejected_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462207119
+Pubs_Internal_Server_Error_cr		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462207127
+Pubs_Access_Denied_cr				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206074
+Pubs_ASID_Check_Failed_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206082
+Pubs_Bad_Request_cr					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206090
+Pubs_Invalid_Code_Value_cr			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206104
+Pubs_Invalid_Element_cr				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462206112
+Pubs_Message_Not_Well_Formed_cr		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9462207100
+
+Pubs_Patient_Not_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848193
+Pubs_Practitioner_Not_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848207
+Pubs_No_Record_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848215
+Pubs_Invalid_Identifier_System		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848223
+Pubs_Invalid_Identifier_Value		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848231
+Pubs_Invalid_Code_System		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848258
+Pubs_Reference_Not_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848266
+Pubs_Not_Implemented		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848274
+
+VACCINATION						xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='MessageHeader']/*[local-name()='event']/*[local-name()='code']/@value vaccinations-1
+PROFESSIONAL_CONTACTS			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='MessageHeader']/*[local-name()='event']/*[local-name()='code']/@value professional-contacts-1
+
+
+#Delete_Bad_Request				context_path notmatches ^.*DocumentReference[?][_]id=..*$
+#Delete_Bad_Request 				context_path notmatches ^.*Subscription[?][_]id=[a-z,A-Z,0-9]{32}$
+#Delete_Bad_Request_MI			context_path notmatches ^.*DocumentReference[?]subject=https://demographics.spineservices.nhs.uk/STU3/Patient/[0-9]{10}.identifier=\S.*[%][7][C]\S.*$
+#Delete_Bad_Request_MI			context_path notmatches ^.*DocumentReference[?]subject=https://demographics.spineservices.nhs.uk/STU3/Patient/[0-9]{10}.*$
+Delete_Success					context_path matches ^.*c037a0cb12kl497683a1a5d2703e6aa3$
+#Delete_MI_Success				context_path matches ^.*9462205868.*.*urn:ietf:rfc:4001.urn:oid:1.3.6.*$
+#Delete_MI_Success				context_path matches ^.*9462205868.*.*urn:ietf:rfc:4001%7Curn:oid:1.3.6.*$
+#No_Record_Found_MI				context_path matches ^.*subject.*.*9462205701.*$
+#Invalid_Resource				context_path matches ^.*subject.*.*9462206015.*$
+#Errors via NHS Number
+Invalid_NHS_Number_nhsno		context_path matches ^.*subject.*.*9462205655.*$
+Invalid_Parameter_nhsno			context_path matches ^.*subject.*.*9462205671.*$
+No_Record_Found_nhsno			context_path matches ^.*subject.*.*9462205701.*$
+Missing_Or_Invalid_Header_nhsno context_path matches ^.*subject.*.*9462205833.*$
+Unsupported_Media_Type_nhsno	context_path matches ^.*subject.*.*9462205841.*$
+#Errors via DocumentReference ID
+Invalid_NHS_Number_Id			context_path matches ^.*c037a0cb-er15-4976-83a1-a5d2703e6aa3$
+Invalid_Parameter_Id			context_path matches ^.*c037a0cber16497683a1a5d2703e6aa3
+Invalid_Resource_ID				context_path matches ^.*c037a0cb-er20-4976-83a1-a5d2703e6aa3$
+No_Record_Found_Id				context_path matches ^.*c037a0cber27497683a1a5d2703e6aa3$
+Missing_Or_Invalid_Header_id	context_path matches ^.*c037a0cber23497683a1a5d2703e6aa3$
+Unsupported_Media_Type_id		context_path matches ^.*c037a0cber99497683a1a5d2703e6aa3$
+Reference_Not_Found_id			context_path matches ^.*c037a0cber97497683a1a5d2703e6aa3$
+Bad_Request_Id					context_path matches ^.*c037a0cber05497683a1a5d2703e6aa3$
+ASID_Check_Failed_id			context_path matches ^.*c037a0cber03497683a1a5d2703e6aa3$
+Access_Denied_id				context_path matches ^.*c037a0cber01497683a1a5d2703e6aa3$
+#PreExistingServer expresions
+EMPTY_CONTENT					matches ^$
+# must be before parameters check since coversion from json wont happen IF content-type is wrong
+INVALID_CONTENT_TYPE			http_header content-type matches ^.*(text.*|application\/[a-z]+[^+]*)$
+#
+#http header checks
+#
+EMPTY_ACCEPT					http_header accept notmatches ^.+$
+INVALID_ACCEPT					http_header accept notmatches ^.*application\/fhir\+(xml|json).*$
+#
+CREATE_SUBSCRIPTION				context_path matches ^.*\/STU3\/Subscription$
+SUBSCRIPTION0					context_path matches ^.*\/STU3\/Subscription\/00000000000000000000000000000000
+SUBSCRIPTION1					context_path matches ^.*\/STU3\/Subscription\/00000000000000000000000000000001
+SUBSCRIPTION2					context_path matches ^.*\/STU3\/Subscription\/00000000000000000000000000000002
+SUBSCRIPTION_CERT_ERROR			context_path matches ^.*\/STU3\/Subscription\/000000000000000000000000000000e1
+SUBSCRIPTION_SPINE_ERROR		context_path matches ^.*\/STU3\/Subscription\/000000000000000000000000000000e2
+OTHER_SUBSCRIPTION				context_path matches ^.*\/STU3\/Subscription\/\b[0-9a-f]{32}
+PUBLISH							context_path matches ^.*\/STU3\/Events\/1\/\$process-message
+#
+PATIENT0						xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848118
+PATIENT1						xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848126
+PATIENT2						xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848134
+INVALID_NHS_NUMBER_PATIENT		xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848142
+INVALID_REQUEST_MESSAGE_PATIENT	xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848150
+ACCESS_DENIED_PATIENT			xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848169
+INTERNAL_SERVER_ERROR_PATIENT	xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848177
+#
+DEPRECATED				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848185
+passthrough	Always
+dontpassthrough	Never
+#
+END EXPRESSIONS
+
+BEGIN RULE
+POST
+IF HTTP_From_MISSING				THEN	HTTP_From_MISSING_Response				ELSE NEXT
+IF HTTP_To_MISSING					THEN	HTTP_To_MISSING_Response				ELSE NEXT
+IF HTTP_Authorization_MISSING		THEN	HTTP_Authorization_MISSING_Response		ELSE NEXT
+IF Conversion_Error					THEN	Conversion_Error_Response				ELSE NEXT
+
+IF CREATE_SUBSCRIPTION AND INVALID_NHS_NUMBER_PATIENT THEN subscription_create_invalid_nhs_number_response
+IF CREATE_SUBSCRIPTION AND INVALID_REQUEST_MESSAGE_PATIENT THEN subscription_create_invalid_request_message_response
+IF CREATE_SUBSCRIPTION AND ACCESS_DENIED_PATIENT THEN subscription_create_access_denied_response
+IF CREATE_SUBSCRIPTION AND INTERNAL_SERVER_ERROR_PATIENT THEN subscription_create_internal_server_error_response
+IF CREATE_SUBSCRIPTION AND PATIENT0 THEN subscription_create_response0
+IF CREATE_SUBSCRIPTION AND PATIENT1 THEN subscription_create_response1
+IF CREATE_SUBSCRIPTION AND PATIENT2 THEN subscription_create_response2
+IF CREATE_SUBSCRIPTION AND Subs_Create_Success					THEN	Create_Success_Response					ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_Request_Message_cr		THEN	Invalid_Request_Message_Response		ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_Resource_cr				THEN	Invalid_Resource_Response				ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Organisation_Not_Found_cr		THEN	Organisation_Not_Found_Response			ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_NHS_Number_cr			THEN	Invalid_NHS_Number_cr_Response			ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_Parameter_cr				THEN	Invalid_Parameter_Response			ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Missing_Or_Invalid_Header_cr		THEN	Missing_Or_Invalid_Header_cr_Response	ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Unsupported_Media_Type_cr		THEN	Unsupported_Media_Type_cr_Response		ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Duplicate_Rejected_cr			THEN	Duplicate_Rejected_Response				ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Internal_Server_Error_cr			THEN	Internal_Server_Error_Response			ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Access_Denied_cr					THEN	Access_Denied_Response					ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_ASID_Check_Failed_cr				THEN	ASID_Check_Failed_Response				ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Bad_Request_cr					THEN	Bad_Request_Response					ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_Code_Value_cr			THEN	Invalid_Code_Value_Response				ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Invalid_Element_cr				THEN	Invalid_Element_Response				ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Message_Not_Well_Formed_cr		THEN	Message_Not_Well_Formed_Response		ELSE NEXT
+IF CREATE_SUBSCRIPTION AND Subs_Deprecated		THEN	subscription_success_deprecated_response		ELSE NEXT
+
+IF PUBLISH AND Pubs_Invalid_Request_Message_cr		THEN	Invalid_Request_Message_Response		ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Resource_cr				THEN	Invalid_Resource_Response				ELSE NEXT
+IF PUBLISH AND Pubs_Organisation_Not_Found_cr		THEN	Organisation_Not_Found_Response			ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_NHS_Number_cr			THEN	Invalid_NHS_Number_cr_Response			ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Parameter_cr				THEN	Invalid_Parameter_Response			ELSE NEXT
+IF PUBLISH AND Pubs_Missing_Or_Invalid_Header_cr		THEN	Missing_Or_Invalid_Header_cr_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Unsupported_Media_Type_cr		THEN	Unsupported_Media_Type_cr_Response		ELSE NEXT
+IF PUBLISH AND Pubs_Duplicate_Rejected_cr			THEN	Duplicate_Rejected_Response				ELSE NEXT
+IF PUBLISH AND Pubs_Internal_Server_Error_cr			THEN	Internal_Server_Error_Response			ELSE NEXT
+IF PUBLISH AND Pubs_Access_Denied_cr					THEN	Access_Denied_Response					ELSE NEXT
+IF PUBLISH AND Pubs_ASID_Check_Failed_cr				THEN	ASID_Check_Failed_Response				ELSE NEXT
+IF PUBLISH AND Pubs_Bad_Request_cr					THEN	Bad_Request_Response					ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Code_Value_cr			THEN	Invalid_Code_Value_Response				ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Element_cr				THEN	Invalid_Element_Response				ELSE NEXT
+IF PUBLISH AND Pubs_Message_Not_Well_Formed_cr		THEN	Message_Not_Well_Formed_Response		ELSE NEXT
+
+IF PUBLISH AND Pubs_Patient_Not_Found		THEN	Patient_Not_Found_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Practitioner_Not_Found		THEN	Practitioner_Not_Found_Response	ELSE NEXT
+IF PUBLISH AND Pubs_No_Record_Found		THEN	No_Record_Found_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Identifier_System		THEN	Invalid_Identifier_System_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Identifier_Value		THEN	Invalid_Identifier_Value_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Invalid_Code_System		THEN	Invalid_Code_System_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Reference_Not_Found		THEN	Reference_Not_Found_Response	ELSE NEXT
+IF PUBLISH AND Pubs_Not_Implemented		THEN	Not_Implemented_Response	ELSE NEXT
+
+IF PUBLISH AND VACCINATION AND DEPRECATED THEN publish_vaccination_success_deprecated_response
+IF PUBLISH AND PROFESSIONAL_CONTACTS AND DEPRECATED THEN publish_professional_contacts_success_deprecated_response
+
+IF PUBLISH THEN publish_success_response
+
+IF Create_Subscription_Bad_Request	AND Create_Publish_Bad_Request	THEN	Create_Bad_Request_Response		ELSE NEXT
+#IF passthrough THEN operation_outcome_all_other_requests
+IF passthrough THEN notFoundNEMS_Response
+END RULE
+
+#=========================================================================================
+# Http methods no interactionid
+
+BEGIN RULE
+GET
+IF SUBSCRIPTION0 THEN subscription_retrieve_response0
+IF SUBSCRIPTION1 THEN subscription_retrieve_response1
+IF SUBSCRIPTION2 THEN subscription_retrieve_response2
+IF SUBSCRIPTION_CERT_ERROR THEN subscription_retrieve_cert_error
+IF SUBSCRIPTION_SPINE_ERROR THEN subscription_retrieve_spine_error
+IF OTHER_SUBSCRIPTION THEN subscription_retrieve_no_record_found
+IF Conversion_Error					THEN	Conversion_Error_Response				ELSE NEXT
+IF Get_By_ID_Bad_Request 			THEN	Search_Bad_Request_Response				ELSE NEXT
+IF Get_via_ID_Success				THEN	Get_via_ID_Success_Response				ELSE NEXT
+IF Invalid_NHS_Number_nhsno			THEN	Invalid_NHS_Number_Response				ELSE NEXT
+IF Invalid_Parameter_nhsno			THEN	Invalid_Parameter_Response				ELSE NEXT
+IF No_Record_Found_nhsno			THEN	No_Record_Found_Response				ELSE NEXT
+IF Missing_Or_Invalid_Header_nhsno	THEN	Missing_Or_Invalid_Header_Response		ELSE NEXT
+IF Unsupported_Media_Type_nhsno		THEN	Unsupported_Media_Type_Response			ELSE NEXT
+IF Invalid_NHS_Number_Id			THEN	Invalid_NHS_Number_Response				ELSE NEXT
+IF Invalid_Parameter_Id				THEN	Invalid_Parameter_Response				ELSE NEXT
+IF Invalid_Resource_ID				THEN	Invalid_Resource_Response				ELSE NEXT
+IF No_Record_Found_Id				THEN	No_Record_Found_Id_Response				ELSE NEXT
+IF Missing_Or_Invalid_Header_id		THEN	Missing_Or_Invalid_Header_Response		ELSE NEXT
+IF Unsupported_Media_Type_id		THEN	Unsupported_Media_Type_Response			ELSE NEXT
+IF Reference_Not_Found_id 			THEN	Reference_Not_Found_Response			ELSE NEXT
+IF Bad_Request_Id					THEN  	Bad_Request_Response					ELSE NEXT
+IF ASID_Check_Failed_id				THEN	ASID_Check_Failed_Response				ELSE NEXT
+IF Access_Denied_id					THEN	Access_Denied_Response					ELSE NEXT
+#IF passthrough THEN operation_outcome_all_other_requests
+IF passthrough THEN notFoundNEMS_Response
+END RULE
+
+BEGIN RULE
+PUT
+IF passthrough THEN operation_outcome_unsupported_verb_404
+END RULE
+
+BEGIN RULE
+DELETE
+IF SUBSCRIPTION0 THEN delete_response
+IF SUBSCRIPTION1 THEN subscription_delete_cert_error
+IF SUBSCRIPTION2 THEN subscription_delete_spine_error
+IF OTHER_SUBSCRIPTION THEN subscription_delete_no_record_found
+IF Conversion_Error					THEN	Conversion_Error_Response				ELSE NEXT
+IF Get_By_ID_Bad_Request			THEN	Delete_Bad_Request_Response				ELSE NEXT
+IF Delete_Success					THEN	Delete_Success_Response					ELSE NEXT
+#IF Delete_MI_Success				THEN	Delete_MI_Success_Response				ELSE NEXT
+#IF No_Record_Found_MI				THEN	No_Record_Found_MI_Response				ELSE NEXT
+#IF Invalid_Resource				THEN	Invalid_Resource_Response				ELSE NEXT
+IF Invalid_NHS_Number_nhsno			THEN	Invalid_NHS_Number_Response				ELSE NEXT
+IF Invalid_Parameter_nhsno			THEN 	Invalid_Parameter_Response				ELSE NEXT
+IF No_Record_Found_nhsno			THEN	No_Record_Found_Response				ELSE NEXT
+IF Missing_Or_Invalid_Header_nhsno	THEN	Missing_Or_Invalid_Header_Response		ELSE NEXT
+IF Unsupported_Media_Type_nhsno		THEN	Unsupported_Media_Type_Response			ELSE NEXT
+IF Invalid_NHS_Number_Id			THEN    Invalid_NHS_Number_Response				ELSE NEXT
+IF Invalid_Parameter_Id				THEN 	Invalid_Parameter_Response				ELSE NEXT
+IF Invalid_Resource_ID				THEN	Invalid_Resource_Response				ELSE NEXT
+IF No_Record_Found_Id				THEN	No_Record_Found_Id_Response				ELSE NEXT
+IF Missing_Or_Invalid_Header_id		THEN	Missing_Or_Invalid_Header_Response		ELSE NEXT
+IF Unsupported_Media_Type_id		THEN	Unsupported_Media_Type_Response			ELSE NEXT
+IF Reference_Not_Found_id 			THEN	Reference_Not_Found_Response			ELSE NEXT
+IF Bad_Request_Id					THEN  	Bad_Request_Response					ELSE NEXT
+IF ASID_Check_Failed_id				THEN	ASID_Check_Failed_Response				ELSE NEXT
+IF Access_Denied_id					THEN	Access_Denied_Response					ELSE NEXT
+#IF passthrough THEN operation_outcome_all_other_requests
+IF passthrough THEN notFoundNEMS_Response
+END RULE
+
+BEGIN RULE
+PATCH
+IF passthrough THEN operation_outcome_unsupported_verb_404
+END RULE
+
+BEGIN RULE
+OPTIONS
+IF passthrough THEN operation_outcome_unsupported_verb_404
+END RULE
+#=========================================================================================

@@ -1,0 +1,17 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+    <id value="__MESSAGEID__"/>
+    <meta>
+        <profile value="https://fhir.nhs.uk/StructureDefinition/spine-operationoutcome-1"/>
+    </meta>
+    <issue>
+        <severity value="error"/>
+        <code value="not-found"/>
+        <details>
+            <coding>
+                <system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
+                <code value="NO_RECORD_FOUND"/>
+                <display value="No record found"/>
+            </coding>
+        </details>
+    </issue>
+</OperationOutcome>

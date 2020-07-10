@@ -1,0 +1,16 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+	<meta>
+		<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/Spine-OperationOutcome-1"/>
+	</meta>
+	<issue>
+		<severity value="error"/>
+		<code value="invalid"/>
+		<details>
+			<coding>
+				<system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
+				<code value="INVALID_SIMULATOR_TRIGGERS"/>
+				<display value="The request message did not contain both of the triggers to return a simulator responses for search by ODS and patient. Either ODS code, Patient number or both were invalid for the simulator.As no response was selected and this error has been returned."/>
+			</coding>
+		</details>
+	</issue>
+</OperationOutcome>

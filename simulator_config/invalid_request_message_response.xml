@@ -1,0 +1,19 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+    <id value="__MESSAGEID__"/>
+    <meta>
+        <profile value="https://fhir.nhs.uk/StructureDefinition/spine-operationoutcome-1"/>
+    </meta>
+    <issue>
+        <severity value="error"/>
+        <code value="invalid"/>
+        <details>
+            <coding>
+                <system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
+                <code value="INVALID_REQUEST_MESSAGE"/>
+                <display value="Invalid Request Message"/>
+            </coding>
+        </details>
+        <diagnostics value="The subscription criteria did not meet business rules"/>
+    </issue>
+</OperationOutcome>
+

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Subscription>
+	<id value="c037a0cbab12497683a1a5d2703e6aa3"/>
+	<meta>
+		<lastUpdated value="2018-05-26T00:00:00+00:00"/>
+		<versionID value="25777f7d-27bc"/>
+		<profile value="https://fhir.nhs.uk/STU3/StructureDefinition/EMS-Subscription-1"/>
+	</meta>
+	<status value="active"/>
+	<contact>
+		<system value="url"/>
+		<value value="https://directory.spineservices.nhs.uk/STU3/Organization/RR8"/>
+		<use value="work"/>
+	</contact>
+	<reason value="Health visiting service responsible for Leeds"/>
+	<criteria value="/Bundle?type=message&amp;Organization.identifier=X2458&amp;MessageHeader.event=PDS001&amp;MessageHeader.event=PDS002&amp;MessageHeader.event=PDS003&amp;MessageHeader.event=PDS004"/>
+	<channel>
+		<type value="message"/>
+		<endpoint value="Mailbox1234"/>
+	</channel>
+</Subscription>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Use max="" as equivalent to cardinality unbounded i.e. * -->
+<reference xmlns="http://hl7.org/fhir">
+  <NEMS version="2.0.0-Beta">
+    <publication>
+      <elements>
+        <element name="mh_meta_lastUpdated" min="1" max="1" />
+        <element name="mh_extension" min="1" max="1" />
+        <element name="mh_code" min="1" max="1" />
+        <element name="mh_focus" min="1" max="1" />
+        <element name="i_extension" min="1" max="1" />
+        <element name="i_identifier" min="1" max="1" />
+        <element name="i_notGiven" min="1" max="1" />
+        <element name="i_vaccineCode" min="1" max="1" />
+        <element name="i_date" min="1" max="1" />
+        <element name="i_primarySource" min="1" max="1" />
+        <element name="i_reportOrigin" min="0" max="1" />
+        <element name="i_manufacturer" min="0" max="1" />
+        <element name="i_site" min="0" max="1" />
+        <element name="i_route" min="0" max="1" />
+        <element name="i_explanation_reasonNotGiven" min="0" max="1" />
+        <element name="i_vaccinationProtocol_doseSequence" min="0" max="1" />
+        <element name="o_identifier" min="1" max="" />
+        <element name="o_name" min="1" max="1" />
+        <element name="o_telecom" min="0" max="" />
+        <element name="p_identifier" min="1" max="1" />
+        <element name="p_name" min="1" max="1" />
+        <element name="p_birthDate" min="1" max="1" />
+        <element name="pr_organization" min="1" max="1" />
+        <element name="pr_practitioner" min="1" max="1" />
+        <element name="pr_code" min="1" max="" />
+        <element name="pr_speciality" min="1" max="1" />
+        <element name="e_type" min="1" max="" />
+        <element name="e_location" min="0" max="1" />
+        <element name="e_subject" min="1" max="1" />
+        <element name="hcs_providedBy" min="1" max="1" />
+        <element name="hcs_type" min="1" max="1" />
+        <element name="hcs_specialty" min="1" max="1" />
+        <element name="eoc_identifier" min="1" max="1" />
+        <element name="eoc_status" min="1" max="1" />
+        <element name="eoc_type" min="1" max="" />
+        <element name="eoc_managingOrganization" min="1" max="1" />
+        <element name="eoc_period_start" min="0" max="1" />
+        <element name="eoc_period_end" min="0" max="1" />
+        <element name="eoc_team" min="0" max="" />
+        <element name="ct_subject" min="0" max="1" />
+        <element name="ct_name" min="0" max="1" />
+        <element name="ct_participant" min="0" max="" />
+      </elements>
+    </publication>
+  </NEMS>
+</reference>

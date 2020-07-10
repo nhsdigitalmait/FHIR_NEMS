@@ -1,0 +1,20 @@
+<OperationOutcome xmlns="http://hl7.org/fhir">
+    <id value="__MESSAGEID__"/>
+    <meta>
+        <profile value="https://fhir.nhs.uk/StructureDefinition/spine-operationoutcome-1"/>
+    </meta>
+    <issue>
+        <severity value="error"/>
+        <code value="security"/>
+        <details>
+            <coding>
+                <system value="https://fhir.nhs.uk/STU3/CodeSystem/Spine-ErrorOrWarningCode-1"/>
+                <code value="ACCESS_DENIED"/>
+                <display value="Access has been denied to process this request"/>
+            </coding>
+        </details>
+        <diagnostics value="Client certificate has expired."/>
+    </issue>
+</OperationOutcome>
+
+
