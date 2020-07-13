@@ -2,6 +2,8 @@
 #  FHIR VALIDATOR SERVER
 #	Chris Berry 08/08/2019 
 #
+# v2.0 July 2020		ChrisBerry
+# Added Structured Medicines MedicationRequest Responses
 BEGIN RESPONSES
 
 #NEW
@@ -94,6 +96,10 @@ subscription_delete_cert_error							TKW_ROOT/config/FHIR_NEMS/simulator_config/
 subscription_delete_spine_error							TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_response_spine_error.xml 500 
 subscription_delete_no_record_found						TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_no_record_found.xml 404 
 
+#Structured Medicines Responses
+SM_Create_Success_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4"  )
+SM_PUT_PATCH_Create_Success_Response1			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/new_ea0a485187204b49b978bdcf7102388c" )
+SM_PUT_PATCH_Create_Success_Response2			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "204 No Content" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/existing_ea0a485187204b49b978bdcf7102388c" )
 do_process	NONE	0
 END RESPONSES
 
@@ -237,9 +243,15 @@ ACCESS_DENIED_PATIENT			xpathmatches /fhir:Subscription/fhir:criteria/@value 967
 INTERNAL_SERVER_ERROR_PATIENT	xpathmatches /fhir:Subscription/fhir:criteria/@value 9674848177
 #
 DEPRECATED				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848185
+
+#Structured Medicines Expressions
+SM_Create_Success     	 		xpathequals boolean(//*[local-name()='MedicationRequest']) true
+SM_PUT_PATCH_Success1     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 201
+SM_PUT_PATCH_Success2     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 204
 passthrough	Always
 dontpassthrough	Never
 #
+
 END EXPRESSIONS
 
 BEGIN RULE
@@ -249,6 +261,10 @@ IF HTTP_To_MISSING					THEN	HTTP_To_MISSING_Response				ELSE NEXT
 IF HTTP_Authorization_MISSING		THEN	HTTP_Authorization_MISSING_Response		ELSE NEXT
 IF Conversion_Error					THEN	Conversion_Error_Response				ELSE NEXT
 
+#Structured Medicines
+IF SM_Create_Success THEN SM_Create_Success_Response ELSE NEXT
+
+#NEMS
 IF CREATE_SUBSCRIPTION AND INVALID_NHS_NUMBER_PATIENT THEN subscription_create_invalid_nhs_number_response
 IF CREATE_SUBSCRIPTION AND INVALID_REQUEST_MESSAGE_PATIENT THEN subscription_create_invalid_request_message_response
 IF CREATE_SUBSCRIPTION AND ACCESS_DENIED_PATIENT THEN subscription_create_access_denied_response
@@ -344,6 +360,11 @@ END RULE
 
 BEGIN RULE
 PUT
+#Structured Medicines
+IF SM_PUT_PATCH_Success1 THEN SM_PUT_PATCH_Create_Success_Response1 ELSE NEXT
+IF SM_PUT_PATCH_Success2 THEN SM_PUT_PATCH_Create_Success_Response2 ELSE NEXT
+IF SM_Create_Success THEN SM_Create_Success_Response ELSE NEXT
+#NEMS
 IF passthrough THEN operation_outcome_unsupported_verb_404
 END RULE
 
@@ -380,6 +401,11 @@ END RULE
 
 BEGIN RULE
 PATCH
+#Structured Medicines
+IF SM_PUT_PATCH_Success1 THEN SM_PUT_PATCH_Create_Success_Response1 ELSE NEXT
+IF SM_PUT_PATCH_Success2 THEN SM_PUT_PATCH_Create_Success_Response2 ELSE NEXT
+IF SM_Create_Success THEN SM_Create_Success_Response ELSE NEXT
+#NEMS
 IF passthrough THEN operation_outcome_unsupported_verb_404
 END RULE
 
