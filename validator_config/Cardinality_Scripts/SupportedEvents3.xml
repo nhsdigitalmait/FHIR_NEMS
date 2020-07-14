@@ -46,6 +46,17 @@
         <element name="ct_subject" min="0" max="1" />
         <element name="ct_name" min="0" max="1" />
         <element name="ct_participant" min="0" max="" />
+ <element name="mr_id" min="1" max=""/>
+<element name="mr_status" min="1" max=""/>
+<element name="mr_intent" min="1" max=""/>
+<element name="mr_category" min="1" max=""/>
+<element name="mr_medication" min="1" max=""/>
+<element name="mr_subject" min="1" max=""/>
+<element name="mr_authoredOn" min="1" max=""/>
+<element name="mr_requester" min="1" max=""/>
+<element name="mr_recorder" min="1" max=""/>
+<element name="mr_dosageInstruction" min="1" max=""/>
+<element name="mr_substitution" min="1" max=""/>      
       </elements>
     </publication>
   </NEMS>
