@@ -97,9 +97,30 @@ subscription_delete_spine_error							TKW_ROOT/config/FHIR_NEMS/simulator_config
 subscription_delete_no_record_found						TKW_ROOT/config/FHIR_NEMS/simulator_config/subscription_delete_no_record_found.xml 404 
 
 #Structured Medicines Responses
-SM_Create_Success_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4"  )
-SM_PUT_PATCH_Create_Success_Response1			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/new_ea0a485187204b49b978bdcf7102388c" )
-SM_PUT_PATCH_Create_Success_Response2			TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "204 No Content" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/existing_ea0a485187204b49b978bdcf7102388c" )
+SM_Create_Success_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4"  )
+SM_PUT_PATCH_Create_Success_Response1		TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "201 Created" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/new_ea0a485187204b49b978bdcf7102388c" )
+SM_PUT_PATCH_Create_Success_Response2		TKW_ROOT/config/FHIR_NEMS/simulator_config/successful_responses/StructuredMedicines/doc_ref_Create.xml "204 No Content" WITH_HTTP_HEADERS (  id : "d71b92ae-ad3c-41bd-a289-c2a98e105fc4" Content-Location : "https://StructureMedicinesTestHarness/Request/existing_ea0a485187204b49b978bdcf7102388c" )
+#Identity validation errors
+SM_Invalid_Identifier_System_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_400_IIS.xml "400 Invalid Identifier System"
+SM_Invalid_Identifier_Value_Response			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_400_IIV.xml "400 Invalid Identifier Value"
+SM_Invalid_NHS_Number_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_400_INN.xml "400 Invalid NHS Number"
+SM_Organisation_Not_Found_Response 			TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_404_ONF.xml "404 Organisation Not Found"
+SM_Patient_Not_Found_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_404_PNF.xml "404 Patient Not Found"
+SM_Practitioner_Not_Found_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_404_PRNF.xml "404 Practitioner Not Found"
+SM_No_Record_Found_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_404_NRF.xml "404 No Record Found"
+#Security validation errors
+SM_Access_Denied_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_403_AD.xml "403 Access Denied"
+#Duplicate Errors
+SM_Duplicate_Rejected_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_409_DR.xml "409 Duplicate Rejected"
+#Resource validation errors
+SM_Invalid_Resource_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_422_IR.xml "422 Invalid Resource"
+SM_Invalid_Parameter_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_422_IP.xml "422 Invalid Parameter"
+SM_Reference_Not_Found_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_422_RNF.xml "422 Reference Not Found"
+#Malformed request errors
+SM_Bad_Request_Response						TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_400_BR.xml "400 Bad Request"
+#Internal server errors
+SM_Not_Implemented_Response					TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_501_NI.xml	"501 Not Implemented"
+SM_Internal_Server_Error_Response				TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/SM_operation_outcome_500_ISE.xml "500 Internal Server Error"
 do_process	NONE	0
 END RESPONSES
 
@@ -245,9 +266,28 @@ INTERNAL_SERVER_ERROR_PATIENT	xpathmatches /fhir:Subscription/fhir:criteria/@val
 DEPRECATED				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848185
 
 #Structured Medicines Expressions
-SM_Create_Success     	 		xpathequals boolean(//*[local-name()='MedicationRequest']) true
+SM_MedicationRequest		context_path matches ^.*\/STU3\/MedicationRequest
+SM_MedicationDispense		context_path matches ^.*\/STU3\/MedicationDispense
+SM_MedicationStatement		context_path matches ^.*\/STU3\/MedicationStatement
+#SM_Create_Success     	 		xpathequals boolean(//*[local-name()='MedicationRequest']) true
 SM_PUT_PATCH_Success1     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 201
 SM_PUT_PATCH_Success2     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 204
+SM_Invalid_Identifier_System		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000001
+SM_Invalid_Identifier_Value			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000002
+SM_Invalid_NHS_Number			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000003
+SM_Organisation_Not_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000004
+SM_Patient_Not_Found				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 100000555
+SM_Practitioner_Not_Found			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000006
+SM_No_Record_Found					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000007
+SM_Access_Denied					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000008
+SM_Duplicate_Rejected			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000009
+SM_Invalid_Resource				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000010
+SM_Invalid_Parameter				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000011
+SM_Reference_Not_Found			context_path matches ^.*c037a0cber97497683a1a5d2703e6aa3$
+SM_Bad_Request					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000012
+SM_Internal_Server_Error			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000013
+SM_Not_Implemented				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000014
+
 passthrough	Always
 dontpassthrough	Never
 #
@@ -262,7 +302,25 @@ IF HTTP_Authorization_MISSING		THEN	HTTP_Authorization_MISSING_Response		ELSE NE
 IF Conversion_Error					THEN	Conversion_Error_Response				ELSE NEXT
 
 #Structured Medicines
-IF SM_Create_Success THEN SM_Create_Success_Response ELSE NEXT
+IF SM_MedicationRequest AND SM_Invalid_Identifier_System THEN SM_Invalid_Identifier_System_Response
+IF SM_MedicationRequest AND SM_Invalid_Identifier_Value THEN SM_Invalid_Identifier_Value_Response
+IF SM_MedicationRequest AND SM_Invalid_NHS_Number THEN SM_Invalid_NHS_Number_Response
+IF SM_MedicationRequest AND SM_Organisation_Not_Found THEN SM_Organisation_Not_Found_Response
+IF SM_MedicationRequest AND SM_Patient_Not_Found THEN SM_Patient_Not_Found_Response
+IF SM_MedicationRequest AND SM_Practitioner_Not_Found THEN SM_Practitioner_Not_Found_Response
+IF SM_MedicationRequest AND SM_No_Record_Found THEN SM_No_Record_Found_Response
+IF SM_MedicationRequest AND SM_Access_Denied THEN SM_Access_Denied_Response
+IF SM_MedicationRequest AND SM_Duplicate_Rejected THEN SM_Duplicate_Rejected_Response
+IF SM_MedicationRequest AND SM_Invalid_Resource THEN SM_Invalid_Resource_Response
+IF SM_MedicationRequest AND SM_Invalid_Parameter THEN SM_Invalid_Parameter_Response
+IF SM_MedicationRequest AND SM_Reference_Not_Found THEN SM_Reference_Not_Found_Response
+IF SM_MedicationRequest AND SM_Bad_Request THEN SM_Bad_Request_Response
+IF SM_MedicationRequest AND SM_Internal_Server_Error THEN SM_Internal_Server_Error_Response
+IF SM_MedicationRequest AND SM_Not_Implemented THEN SM_Not_Implemented_Response
+IF SM_MedicationRequest THEN SM_Create_Success_Response ELSE NEXT
+IF SM_MedicationDispense THEN SM_Create_Success_Response ELSE NEXT
+IF SM_MedicationStatement THEN SM_Create_Success_Response ELSE NEXT
+
 
 #NEMS
 IF CREATE_SUBSCRIPTION AND INVALID_NHS_NUMBER_PATIENT THEN subscription_create_invalid_nhs_number_response

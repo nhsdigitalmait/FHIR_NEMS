@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Use max="" as equivalent to cardinality unbounded i.e. * -->
+<!--
+
+File to check MVP elements as specified in ePMA FHIR Implementation Guidance 1.0.2-beta
+
+This is not checking cardinality only required/not required for MVP:
+
+min="1" max="" :Required for MVP
+min="0" max="" :NOT Required for MVP
+
+-->
+<reference xmlns="http://hl7.org/fhir" name="ePMA FHIR Implementation Guidance" version="1.0.2-beta">
+	<resource name="MedicationRequest">
+		<set name="common" display='Elements common across FHIR Versions'>
+			<elements>
+				<element name="id" min="1" max=""/>
+				<element name="text" min="0" max=""/>
+				<element name="identifier" min="0" max=""/>
+				<element name="status" min="1" max=""/>
+				<element name="intent" min="1" max=""/>
+				<element name="category" min="1" max=""/>
+				<element name="priority" min="1" max=""/>
+				<element name="medication" min="1" max=""/>
+				<element name="subject" min="1" max=""/>
+				<element name="supportingInformation" min="0" max=""/>
+				<element name="authoredOn" min="1" max=""/>
+				<element name="requester" min="1" max=""/>
+				<element name="recorder" min="1" max=""/>
+				<element name="reasonCode" min="0" max=""/>
+				<element name="reasonReference" min="0" max=""/>
+				<element name="note" min="0" max=""/>
+				<element name="dosageInstruction" min="1" max=""/>
+				<element name="dispenseRequest" min="0" max=""/>
+				<element name="substitution" min="1" max=""/>
+				<element name="priorPrescription" min="0" max=""/>
+				<element name="detectedIssue" min="0" max=""/>
+				<element name="eventHistory" min="0" max=""/>
+			</elements>
+		</set>
+	</resource>
+	<resource name="MedicationDispense">
+		<set name="common" display='Elements common across FHIR Versions'>
+			<elements>
+				<element name="id" min="1" max=""/>
+				<element name="identifier" min="1" max=""/>
+				<element name="partOf" min="0" max=""/>
+				<element name="status" min="1" max=""/>
+				<element name="statusReason[x]" min="0" max=""/>
+				<element name="category" min="1" max=""/>
+				<element name="medication[x]" min="1" max=""/>
+				<element name="medicationReference" min="1" max=""/>
+				<element name="subject" min="1" max=""/>
+				<element name="context" min="0" max=""/>
+				<element name="supportingInformation" min="0" max=""/>
+				<element name="performer" min="1" max=""/>
+				<element name="location" min="0" max=""/>
+				<element name="authorizingPrescription" min="1" max=""/>
+				<element name="type" min="0" max=""/>
+				<element name="quantity" min="1" max=""/>
+				<element name="daysSupply" min="1" max=""/>
+				<element name="whenPrepared" min="1" max=""/>
+				<element name="whenHandedOver" min="1" max=""/>
+				<element name="destination" min="1" max=""/>
+				<element name="receiver" min="0" max=""/>
+				<element name="note" min="1" max=""/>
+				<element name="dosageInstruction" min="1" max=""/>
+				<element name="substitution" min="1" max=""/>
+				<element name="detectedIssue" min="0" max=""/>
+				<element name="notDone" min="0" max=""/>
+				<element name="notDoneReason[x]" min="0" max=""/>
+				<element name="eventHistory" min="0" max=""/>
+				<element name="meta" min="0" max=""/>
+				<element name="implicitRules" min="0" max=""/>
+				<element name="language" min="0" max=""/>
+				<element name="text" min="0" max=""/>
+				<element name="contained" min="0" max=""/>
+				<element name="modifierExtension" min="0" max=""/>
+			</elements>
+		</set>
+	</resource>
+	<resource name="Patient">
+		<set name="common" display='Elements common across FHIR Versions'>
+			<elements>
+				<element name="id" min="1" max=""/>
+				<element name="identifier" min="1" max=""/>
+				<element name="identifier (nhsNumber)" min="1" max=""/>
+				<!--SPECIAL CASE-->
+				<element name="active" min="0" max=""/>
+				<element name="name" min="1" max=""/>
+				<element name="telecom" min="0" max=""/>
+				<element name="gender" min="1" max=""/>
+				<element name="birthDate" min="1" max=""/>
+				<element name="deceased" min="0" max=""/>
+				<element name="address" min="0" max=""/>
+				<element name="maritalStatus" min="0" max=""/>
+				<element name="multipleBirth" min="0" max=""/>
+				<element name="photo" min="0" max=""/>
+				<element name="contact" min="0" max=""/>
+				<element name="communication" min="0" max=""/>
+				<element name="generalPractitioner" min="0" max=""/>
+				<element name="managingOrganization" min="0" max=""/>
+				<element name="link" min="0" max=""/>
+				<element name="animal" min="0" max=""/>
+				<element name="other CareConnect extensions" min="0" max=""/>
+			</elements>
+		</set>
+	</resource>
+	<resource name="Practitioner">
+		<set name="common" display='Elements common across FHIR Versions'>
+			<elements>
+				<element name="id" min="1" max=""/>
+				<element name="text" min="0" max=""/>
+				<element name="identifier" min="0" max=""/>
+				<element name="active" min="0" max=""/>
+				<element name="name" min="1" max=""/>
+				<element name="telecom" min="0" max=""/>
+				<element name="address" min="0" max=""/>
+				<element name="gender" min="0" max=""/>
+				<element name="birthDate" min="0" max=""/>
+				<element name="photo" min="0" max=""/>
+				<element name="contact" min="0" max=""/>
+				<element name="qualification" min="1" max=""/>
+				<element name="communication" min="0" max=""/>
+			</elements>
+		</set>
+	</resource>
+</reference>
