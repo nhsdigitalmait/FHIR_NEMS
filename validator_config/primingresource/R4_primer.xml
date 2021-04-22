@@ -1,0 +1,398 @@
+<Bundle xmlns="http://hl7.org/fhir">
+   <id value="mim-example"/>
+   <identifier>
+      <system value="https://tools.ietf.org/html/rfc4122"/>
+      <value value="f28682c0-50d2-472a-a8f0-477f7ac1b63f"/>
+   </identifier>
+   <type value="message"/>
+   <entry>
+      <fullUrl value="urn:oid:48B07891-1D81-7B99-3BD2-23E242D2DD44"/>
+      <resource>
+         <MessageHeader xmlns="http://hl7.org/fhir">
+            <eventCoding>
+               <system value="https://fhir.nhs.uk/CodeSystem/message-event"/>
+               <code value="prescription-order"/>
+               <display value="Prescription Order"/>
+            </eventCoding>
+            <sender>
+               <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+               <display value="Dr Smith"/>
+            </sender>
+            <source>
+               <name value="PAS"/>
+               <endpoint value="https://fhir.mynhstrust.nhs.uk/R4"/>
+            </source>
+            <focus>
+               <reference value="urn:uuid:1E34EE53-397A-2E70-E97C-67B1BD95014D"/>
+            </focus>
+            <focus>
+               <reference value="urn:uuid:791C9A65-5C6A-308B-D700-32D247BADB87"/>
+            </focus>
+            <focus>
+               <reference value="urn:uuid:C6750CAA-3CA9-4F29-A282-6EE1AA5D7D4C"/>
+            </focus>
+            <focus>
+               <reference value="urn:uuid:0f314b9f-5233-42e6-aed3-c436bb9ac8ab"/>
+            </focus>
+            <focus>
+               <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+            </focus>
+         </MessageHeader>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:1E34EE53-397A-2E70-E97C-67B1BD95014D"/>
+      <resource>
+         <MedicationRequest xmlns="http://hl7.org/fhir">
+            <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PrescriptionType">
+               <valueCoding>
+                  <system value="https://fhir.nhs.uk/CodeSystem/prescription-type"/>
+                  <code value="0101"/>
+                  <display value="Primary Care Prescriber – Medical Prescriber"/>
+               </valueCoding>
+            </extension>
+            <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-ResponsiblePractitioner">
+               <valueReference>
+                  <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+               </valueReference>
+            </extension>
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/prescription-order-item-number"/>
+               <value value="1E34EE53-397A-2E70-E97C-67B1BD95014D"/>
+            </identifier>
+            <status value="active"/>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+                  <code value="inpatient"/>
+                  <display value="Inpatient"/>
+               </coding>
+               <text value="Inpatient"/>
+            </category>
+            <medicationCodeableConcept>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="320176004"/>
+                  <display value="Salbutamol 100micrograms inhaler (product)"/>
+               </coding>
+            </medicationCodeableConcept>
+            <subject>
+               <reference value="urn:uuid:C6750CAA-3CA9-4F29-A282-6EE1AA5D7D4C"/>
+            </subject>
+            <authoredOn value="2004-09-20T10:30:00.000+00:00"/>
+            <requester>
+               <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+               <display value="Dr Smith"/>
+            </requester>
+            <groupIdentifier>
+               <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PrescriptionId">
+                  <valueIdentifier>
+                     <system value="https://fhir.nhs.uk/Id/prescription"/>
+                     <value value="EDD2E9DD-DA0A-C266-A4E3-447C68239524"/>
+                  </valueIdentifier>
+               </extension>
+               <system value="https://fhir.nhs.uk/Id/prescription-order-number"/>
+               <value value="83C40E-A23856-00123C"/>
+            </groupIdentifier>
+            <courseOfTherapyType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy"/>
+                  <code value="acute"/>
+                  <display value="Short course (acute) therapy"/>
+               </coding>
+            </courseOfTherapyType>
+            <dosageInstruction>
+               <text value="2 Puffs when required"/>
+            </dosageInstruction>
+            <dispenseRequest>
+               <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PerformerSiteType">
+                  <valueCoding>
+                     <system value="https://fhir.nhs.uk/CodeSystem/dispensing-site-preference"/>
+                     <code value="0004"/>
+                  </valueCoding>
+               </extension>
+               <quantity>
+                  <value value="200"/>
+                  <unit value="actuation(s)"/>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="732981002"/>
+               </quantity>
+               <performer>
+                  <identifier>
+                     <system value="https://fhir.nhs.uk/Id/ods-organization-code"/>
+                     <value value="Y12345"/>
+                  </identifier>
+               </performer>
+            </dispenseRequest>
+            <substitution>
+               <allowedBoolean value="false"/>
+            </substitution>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:791C9A65-5C6A-308B-D700-32D247BADB87"/>
+      <resource>
+         <MedicationRequest xmlns="http://hl7.org/fhir">
+            <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PrescriptionType">
+               <valueCoding>
+                  <system value="https://fhir.nhs.uk/CodeSystem/prescription-type"/>
+                  <code value="0101"/>
+                  <display value="Primary Care Prescriber – Medical Prescriber"/>
+               </valueCoding>
+            </extension>
+            <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-ResponsiblePractitioner">
+               <valueReference>
+                  <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+               </valueReference>
+            </extension>
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/prescription-order-item-number"/>
+               <value value="791C9A65-5C6A-308B-D700-32D247BADB87"/>
+            </identifier>
+            <status value="active"/>
+            <intent value="order"/>
+            <category>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-category"/>
+                  <code value="inpatient"/>
+                  <display value="Inpatient"/>
+               </coding>
+               <text value="Inpatient"/>
+            </category>
+            <medicationCodeableConcept>
+               <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="810211000001105"/>
+                  <display value="Seretide 125 Evohaler (GlaxoSmithKline)"/>
+               </coding>
+            </medicationCodeableConcept>
+            <subject>
+               <reference value="urn:uuid:C6750CAA-3CA9-4F29-A282-6EE1AA5D7D4C"/>
+            </subject>
+            <authoredOn value="2004-09-20T10:30:00.000+00:00"/>
+            <requester>
+               <reference value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+               <display value="Dr Smith"/>
+            </requester>
+            <groupIdentifier>
+               <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PrescriptionId">
+                  <valueIdentifier>
+                     <system value="https://fhir.nhs.uk/Id/prescription"/>
+                     <value value="urn:uuid:EDD2E9DD-DA0A-C266-A4E3-447C68239524"/>
+                  </valueIdentifier>
+               </extension>
+               <system value="https://fhir.nhs.uk/Id/prescription-order-number"/>
+               <value value="83C40E-A23856-00123C"/>
+            </groupIdentifier>
+            <courseOfTherapyType>
+               <coding>
+                  <system value="http://terminology.hl7.org/CodeSystem/medicationrequest-course-of-therapy"/>
+                  <code value="acute"/>
+                  <display value="Short course (acute) therapy"/>
+               </coding>
+            </courseOfTherapyType>
+            <dosageInstruction>
+               <text value="2 Puffs twice daily"/>
+            </dosageInstruction>
+            <dispenseRequest>
+               <extension url="https://fhir.nhs.uk/StructureDefinition/Extension-DM-PerformerSiteType">
+                  <valueCoding>
+                     <system value="https://fhir.nhs.uk/CodeSystem/dispensing-site-preference"/>
+                     <code value="0004"/>
+                  </valueCoding>
+               </extension>
+               <quantity>
+                  <value value="240"/>
+                  <unit value="actuation(s)"/>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="732981002"/>
+               </quantity>
+               <performer>
+                  <identifier>
+                     <system value="https://fhir.nhs.uk/Id/ods-organization-code"/>
+                     <value value="Y12345"/>
+                  </identifier>
+               </performer>
+            </dispenseRequest>
+            <substitution>
+               <allowedBoolean value="false"/>
+            </substitution>
+         </MedicationRequest>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:C6750CAA-3CA9-4F29-A282-6EE1AA5D7D4C"/>
+      <resource>
+         <Patient xmlns="http://hl7.org/fhir">
+            <identifier>
+               <extension url="https://fhir.hl7.org.uk/StructureDefinition/Extension-UKCore-NHSNumberVerificationStatus">
+                  <valueCodeableConcept>
+                     <coding>
+                        <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-NHSNumberVerificationStatus"/>
+                        <code value="01"/>
+                        <display value="Number present and verified"/>
+                     </coding>
+                  </valueCodeableConcept>
+               </extension>
+               <system value="https://fhir.nhs.uk/Id/nhs-number"/>
+               <value value="9900002717"/>
+            </identifier>
+            <name>
+               <use value="official"/>
+               <family value="Smith"/>
+               <given value="Frank"/>
+               <given value="Simon"/>
+               <prefix value="Mr"/>
+            </name>
+            <gender value="male"/>
+            <birthDate value="1972-12-07"/>
+            <address>
+               <use value="home"/>
+               <type value="both"/>
+               <line value="10, The High Street,"/>
+               <city value="Simple Town"/>
+               <postalCode value="AA1 1AA"/>
+            </address>
+            <generalPractitioner>
+               <identifier>
+                  <system value="https://fhir.nhs.uk/Id/ods-organization-code"/>
+                  <value value="Y12345"/>
+                  <period>
+                     <start value="2020-01-01T00:00:00+00:00"/>
+                     <end value="2021-12-31T00:00:00+00:00"/>
+                  </period>
+               </identifier>
+               <display value="Dr Nice"/>
+            </generalPractitioner>
+         </Patient>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:1557E58E-3B1E-41DD-B3B5-D4D393DC5A3D"/>
+      <resource>
+         <Practitioner xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/sds-user-id"/>
+               <value value="896547302565"/>
+            </identifier>
+            <name>
+               <use value="official"/>
+               <family value="Smith"/>
+               <prefix value="Dr"/>
+            </name>
+         </Practitioner>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:6dc16793-61c2-44b8-8d0f-f872101c016e"/>
+      <resource>
+         <PractitionerRole xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/sds-role-profile-id"/>
+               <value value="125686540025"/>
+            </identifier>
+            <practitioner>
+               <reference value="urn:uuid:1557E58E-3B1E-41DD-B3B5-D4D393DC5A3D"/>
+            </practitioner>
+            <organization>
+               <reference value="urn:uuid:17c4270d-6966-4788-8cbc-1d1d63536b25"/>
+            </organization>
+            <code>
+               <coding>
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-SDSJobRoleName"/>
+                  <code value="R8000"/>
+                  <display value="Clinical Practitioner Access Role"/>
+               </coding>
+            </code>
+            <telecom>
+               <system value="phone"/>
+               <value value="01234567890"/>
+               <use value="work"/>
+            </telecom>
+         </PractitionerRole>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:17c4270d-6966-4788-8cbc-1d1d63536b25"/>
+      <resource>
+         <Organization xmlns="http://hl7.org/fhir">
+            <identifier>
+               <use value="official"/>
+               <system value="https://fhir.nhs.uk/Id/ods-organization-code"/>
+               <value value="M85011"/>
+            </identifier>
+            <type>
+               <coding>
+                  <system value="https://fhir.nhs.uk/CodeSystem/organisation-role"/>
+                  <code value="RO76"/>
+               </coding>
+            </type>
+            <name value="Mirfleld Surgery"/>
+            <telecom>
+               <system value="phone"/>
+               <value value="01234567890"/>
+               <use value="work"/>
+            </telecom>
+            <address>
+               <line value="20 Low street"/>
+               <city value="Simple town"/>
+               <postalCode value="AA2 2AA"/>
+            </address>
+            <partOf>
+               <identifier>
+                  <system value="https://fhir.nhs.uk/Id/ods-organization-code"/>
+                  <value value="5FE"/>
+               </identifier>
+               <display value="Portsmouth City"/>
+            </partOf>
+         </Organization>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:550692c5-9de4-4b7f-b06e-846b90f9a763"/>
+      <resource>
+         <Practitioner xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/sds-user-id"/>
+               <value value="777964352001"/>
+            </identifier>
+            <name>
+               <use value="official"/>
+               <family value="Nice"/>
+               <prefix value="Dr"/>
+            </name>
+         </Practitioner>
+      </resource>
+   </entry>
+   <entry>
+      <fullUrl value="urn:uuid:0f314b9f-5233-42e6-aed3-c436bb9ac8ab"/>
+      <resource>
+         <PractitionerRole xmlns="http://hl7.org/fhir">
+            <identifier>
+               <system value="https://fhir.nhs.uk/Id/sds-role-profile-id"/>
+               <value value="787946852679"/>
+            </identifier>
+            <practitioner>
+               <reference value="urn:uuid:550692c5-9de4-4b7f-b06e-846b90f9a763"/>
+            </practitioner>
+            <organization>
+               <reference value="urn:uuid:17c4270d-6966-4788-8cbc-1d1d63536b25"/>
+            </organization>
+            <code>
+               <coding>
+                  <system value="https://fhir.hl7.org.uk/CodeSystem/UKCore-SDSJobRoleName"/>
+                  <code value="R8000"/>
+                  <display value="Clinical Practitioner Access Role"/>
+               </coding>
+            </code>
+            <telecom>
+               <system value="phone"/>
+               <value value="01234567890"/>
+               <use value="work"/>
+            </telecom>
+         </PractitionerRole>
+      </resource>
+   </entry>
+</Bundle>

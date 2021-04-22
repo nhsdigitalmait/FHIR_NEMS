@@ -19,8 +19,8 @@ sed -i -e "/^tks.sender.destination/c\tks.sender.destination /home/service/data/
 sed -i -e "/^tks.validator.source/c\tks.validator.source /home/service/data/messages_for_validation" ${configDirectory}/tkw-x_cleartext.properties
 
 # Update FHIR profile directory with docker image volume directories (This should be done in a more programatic fasion with a loop - run out of time :-)) 
-sed -i -e "/^tks.validator.hapifhirvalidator.assetdir/c\tks.validator.hapifhirvalidator.assetdir /home/service/fhir" ${configDirectory}/tkw-x_cleartext.properties
-sed -i -e "/^tks.validator.hapifhirvalidator.profileversionfilelocation/c\tks.validator.hapifhirvalidator.profileversionfilelocation /home/service/fhir/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
+#sed -i -e "/^tks.validator.hapifhirvalidator.assetdir/c\tks.validator.hapifhirvalidator.assetdir /home/service/fhir" ${configDirectory}/tkw-x_cleartext.properties
+#sed -i -e "/^tks.validator.hapifhirvalidator.profileversionfilelocation/c\tks.validator.hapifhirvalidator.profileversionfilelocation /home/service/fhir/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
 
 # Update all instances of local dir with docker image directories for all config/contrib entries
 sed -i -e 's|TKW_ROOT/|/home/service/TKW/|g' ${configDirectory}/tkw-x.properties
@@ -33,9 +33,23 @@ sed -i -e "/^tks.savedmessages/c\tks.savedmessages /home/service/data/all_eviden
 sed -i -e "/^tks.sender.destination/c\tks.sender.destination /home/service/data/transmitter_sent_messages" ${configDirectory}/tkw-x.properties
 sed -i -e "/^tks.validator.source/c\tks.validator.source /home/service/data/messages_for_validation" ${configDirectory}/tkw-x.properties
 
+
 # Update FHIR profile directory with docker image volume directories (This should be done in a more programatic fasion with a loop - run out of time :-)) 
-sed -i -e "/^tks.validator.hapifhirvalidator.assetdir/c\tks.validator.hapifhirvalidator.assetdir /home/service/fhir" ${configDirectory}/tkw-x.properties
-sed -i -e "/^tks.validator.hapifhirvalidator.profileversionfilelocation/c\tks.validator.hapifhirvalidator.profileversionfilelocation /home/service/fhir/profile_version.txt" ${configDirectory}/tkw-x.properties
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR3.assetdir/c\tks.validator.hapifhirvalidator.FHIR3.assetdir /home/service/fhir/stu3" ${configDirectory}/tkw-x.properties
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR3.profileversionfilelocation/c\tks.validator.hapifhirvalidator.FHIR3.profileversionfilelocation /home/service/fhir/stu3/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
+
+# Update FHIR profile directory with docker image volume directories (This should be done in a more programatic fasion with a loop - run out of time :-)) 
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR4.assetdir/c\tks.validator.hapifhirvalidator.FHIR4.assetdir /home/service/fhir/r4" ${configDirectory}/tkw-x.properties
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR4.profileversionfilelocation/c\tks.validator.hapifhirvalidator.FHIR4.profileversionfilelocation /home/service/fhir/r4/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
+
+# Update FHIR profile directory with docker image volume directories (This should be done in a more programatic fasion with a loop - run out of time :-)) 
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR3.assetdir/c\tks.validator.hapifhirvalidator.FHIR3.assetdir /home/service/fhir/stu3" ${configDirectory}/tkw-x_cleartext.properties
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR3.profileversionfilelocation/c\tks.validator.hapifhirvalidator.FHIR3.profileversionfilelocation /home/service/fhir/stu3/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
+
+# Update FHIR profile directory with docker image volume directories (This should be done in a more programatic fasion with a loop - run out of time :-)) 
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR4.assetdir/c\tks.validator.hapifhirvalidator.FHIR4.assetdir /home/service/fhir/r4" ${configDirectory}/tkw-x_cleartext.properties
+sed -i -e "/^tks.validator.hapifhirvalidator.FHIR4.profileversionfilelocation/c\tks.validator.hapifhirvalidator.FHIR4.profileversionfilelocation /home/service/fhir/r4/profile_version.txt" ${configDirectory}/tkw-x_cleartext.properties
+
 
 
 # Update Simulator ruleset with docker image directories
