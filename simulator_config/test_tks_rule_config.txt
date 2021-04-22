@@ -266,9 +266,9 @@ INTERNAL_SERVER_ERROR_PATIENT	xpathmatches /fhir:Subscription/fhir:criteria/@val
 DEPRECATED				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 9674848185
 
 #Structured Medicines Expressions
-SM_MedicationRequest		context_path matches ^.*\/STU3\/MedicationRequest
-SM_MedicationDispense		context_path matches ^.*\/STU3\/MedicationDispense
-SM_MedicationStatement		context_path matches ^.*\/STU3\/MedicationStatement
+SM_MedicationRequest		context_path matches ^.*\/MedicationRequest
+SM_MedicationDispense		context_path matches ^.*\/MedicationDispense
+SM_MedicationStatement		context_path matches ^.*\/MedicationStatement
 #SM_Create_Success     	 		xpathequals boolean(//*[local-name()='MedicationRequest']) true
 SM_PUT_PATCH_Success1     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 201
 SM_PUT_PATCH_Success2     	 		xpathequals //*[local-name()='MedicationRequest']/*[local-name()='trigger']/@value 204
@@ -276,7 +276,7 @@ SM_Invalid_Identifier_System		xpathmatches //*[local-name()='Bundle']/*[local-na
 SM_Invalid_Identifier_Value			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000002
 SM_Invalid_NHS_Number			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000003
 SM_Organisation_Not_Found		xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000004
-SM_Patient_Not_Found				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 100000555
+SM_Patient_Not_Found				xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000005
 SM_Practitioner_Not_Found			xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000006
 SM_No_Record_Found					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000007
 SM_Access_Denied					xpathmatches //*[local-name()='Bundle']/*[local-name()='entry']/*[local-name()='resource']/*[local-name()='Patient']/*[local-name()='identifier']/*[local-name()='value']/@value 1000008
