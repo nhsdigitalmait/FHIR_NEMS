@@ -1,0 +1,10 @@
+version: '3.3'
+services:
+    fhir_nems:
+        ports:
+            - '8000:4434'
+        volumes:
+            - 'TKW_ROOT/OutputDir/FHIR_NEMS:/home/service/data' 
+            - 'TKW_ROOT/FHIR-Assets:/home/service/fhir' 
+            - 'TKW_ROOT/certs:/home/service/certs'
+        image: 'nhsdigitalmait/fhir_nems:20211013'
