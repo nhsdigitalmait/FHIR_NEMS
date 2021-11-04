@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Use max="" as equivalent to cardinality unbounded i.e. * -->
+<reference xmlns="http://hl7.org/fhir">
+	<NEMS version="2.8.1-Beta">
+		<criteria>
+			<criterion name="bundleType" min="1" max="1"/>
+			<criterion name="serviceType" min="0" max="1"/>
+			<criterion name="patient" min="0" max="0"/>
+			<criterion name="event" min="1" max="1"/>
+			<criterion name="age" min="0" max="2"/>
+			<criterion name="subscriptionRuleType" min="1" max="1"/>
+			<criterion name="organization" min="0" max="1"/>
+			<criterion name="tag" min="0" max="1"/>
+		</criteria>
+		<bundleTypes>
+			<bundleType name="message"/>
+		</bundleTypes>
+		<serviceTypes>
+			<serviceType code="GP" text="'GP - GP Practice related services'"/>
+			<serviceType code="CHO" text="'Child Health Organisation related services'"/>
+			<serviceType code="UHV" text="'Health Visitor related services'"/>
+			<serviceType code="EPCHR" text="'Electronic Personal Child Health Record services'"/>
+		</serviceTypes>
+		<subscriptionRuleTypes>
+			<subscriptionRuleType code="GP_GP_GP" text="'This will be a match if the patients registered GP matches the GP Practice code within the “Organization.identifier” criteria component.'"/>
+			<subscriptionRuleType code="UHV_POSTCODE_LACODE" text="'This will be a match if the Local Authority Code responsible for the geographical location of the patients post code matches the code within the “Organization.identifier” criteria component.'"/>
+			<subscriptionRuleType code="CHO_GP_CCG" text="'This will be a match if the CCG Code responsible for the geographical location of the patients registered GP matches the code within the “Organization.identifier” criteria component.'"/>
+			<subscriptionRuleType code="CHO_POSTCODE_CCG" text="'This will be a match if the CCG Code responsible for the geographical location of the patients postcode matches the code within the “Organization.identifier” criteria component.'"/>
+			<subscriptionRuleType code="HSS" text="'National subscription, subscription criteria is a match for any patients in England.'"/>
+		</subscriptionRuleTypes>
+		<events>
+			<event name="PDS Change" code="pds-change-1" publication="F" subscription="T"/>
+		</events>
+	</NEMS>
+</reference>
