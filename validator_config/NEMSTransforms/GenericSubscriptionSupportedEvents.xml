@@ -29,7 +29,7 @@
 			<subscriptionRuleType code="HSS" text="'National subscription, subscription criteria is a match for any patients in England.'"/>
 		</subscriptionRuleTypes>
 		<events>
-			<event name="PDS Change" code="pds-change-1" publication="F" subscription="T"/>
+			<event name="PDS Change of GP" code="pds-change-of-gp-1" publication="F" subscription="T"/>
 		</events>
 	</NEMS>
 </reference>
