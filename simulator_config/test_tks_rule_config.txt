@@ -31,7 +31,7 @@ Invalid_Resource_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_o
 No_Record_Found_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF.xml	"404 No Record Found"
 No_Record_Found_Id_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_NRF_Ref.xml	"404 No Record Found"
 Invalid_Request_Message_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_IRM.xml	"400 Invalid Request Message"
-Organisation_Not_Found_Response 	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_ONF.xml	"404 Organisation Not Found"
+Organisation_Not_Found_Response		TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_404_ONF.xml	"404 Organisation Not Found"
 Missing_Or_Invalid_Header_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH.xml	"400 Missing Or Invalid Header"
 Missing_Or_Invalid_Header_cr_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_400_MOIH_cr.xml	"400 Missing Or Invalid Header"
 Unsupported_Media_Type_Response	TKW_ROOT/config/FHIR_NEMS/simulator_config/operation_outcomes/operation_outcome_415_UMT.xml	"415 Unsupported Media Type"
@@ -78,15 +78,15 @@ ___MESSAGEID__	UUID
 __TIMESTAMP__	ISO8601datetime
 __JOBID__	UUID
 __ERRORID__	UUID
-__SERVER__	Literal 	NHS Digital TKW Server
-__PATIENT_2__	Literal 	9658218873
+__SERVER__	Literal	NHS Digital TKW Server
+__PATIENT_2__	Literal	9658218873
 __SPINEID__	UUID
 __ERRORCODE__	Literal	1000
-__ERRORTEXT__	Literal 	Invalid message
+__ERRORTEXT__	Literal	Invalid message
 __ERRORDETAIL__	Literal	Test message rejection
-__IDENTIFIER__	Literal 	9999999999
-__LASTTWENTY__	Literal 	-1A2B3C4D5E6F7G8I9J0K
-__DELAY__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.DelaySubstitution 	"9999999999 20"
+__IDENTIFIER__	Literal	9999999999
+__LASTTWENTY__	Literal	-1A2B3C4D5E6F7G8I9J0K
+__DELAY__	Class uk.nhs.digital.mait.tkwx.tk.internalservices.rules.DelaySubstitution	"9999999999 20"
 __ERRORTEXT_IVP__	Xpath	concat(substring (concat('Failed to parse request body as JSON resource. Error was: ',replace(/fhirconversionfailure,'"','&quot;')), 1, string-length(concat('Failed to parse request body as JSON resource. Error was :',replace(/fhirconversionfailure,'"','&quot;')))), substring('__ERRORTEXT_IVP__', 1, number(not(/string-length(/fhirconversionfailure))) * string-length('__ERRORTEXT_IVP__')))
 __MASTERIDSYSTEM__	Xpath	/fhir:DocumentReference/fhir:masterIdentifier/fhir:system/@value
 __MASTERIDVALUE__	Xpath	/fhir:DocumentReference/fhir:masterIdentifier/fhir:value/@value
@@ -183,8 +183,9 @@ HTTP_To_MISSING	http_header	toASID	notmatches	^.+$
 HTTP_Authorization_MISSING	http_header	Authorization	notmatches	^.+$
 subs_explicit			xpathequals	contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'Patient.identifier')	true
 subs_generic			xpathequals	contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'subscriptionRuleType')	true
-subs_generic_Organisation_A91720_pds_change			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'A91720') and contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'pds-change-gp-1'))	true
-subs_generic_Organisation_A91720			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'A91720'))	true
+subs_generic_A91720_pds_change			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'A91720') and contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'pds-change-of-gp-1'))	true
+subs_generic_A91720_not_pds_change			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'A91720') and not(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'pds-change-of-gp-1')))	true
+subs_generic_A91720			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'A91720'))	true
 subs_generic_Organisation_Not_Found			xpathequals	(contains(//*[local-name()='Subscription']/*[local-name()='criteria']/@value,'Z99999'))	true
 passthrough	Always			
 dontpassthrough	Never			
@@ -220,9 +221,9 @@ IF	CREATE_SUBSCRIPTION	AND	subs_explicit	AND	Subs_Invalid_Code_Value_cr	THEN	Inv
 IF	CREATE_SUBSCRIPTION	AND	subs_explicit	AND	Subs_Invalid_Element_cr	THEN	Invalid_Element_Response
 IF	CREATE_SUBSCRIPTION	AND	subs_explicit	AND	Subs_Message_Not_Well_Formed_cr	THEN	Message_Not_Well_Formed_Response
 IF	CREATE_SUBSCRIPTION	AND	subs_explicit	AND	Subs_Deprecated	THEN	subscription_success_deprecated_response
-IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND 	subs_generic_Organisation_A91720	AND	subs_generic_Organisation_A91720_pds_change	THEN	generic_subscription_create_response2
-IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND 	subs_generic_Organisation_A91720	THEN	generic_subscription_create_response1
-IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND 	subs_generic_Organisation_Not_Found	THEN	Organisation_Not_Found_Response
+IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND	subs_generic_A91720_pds_change	THEN	generic_subscription_create_response2
+IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND	subs_generic_A91720_not_pds_change	THEN	generic_subscription_create_response1
+IF	CREATE_SUBSCRIPTION	AND	subs_generic	AND	subs_generic_Organisation_Not_Found	THEN	Organisation_Not_Found_Response
 IF	CREATE_SUBSCRIPTION	AND	subs_generic	THEN	generic_subscription_create_response0
 IF	CREATE_SUBSCRIPTION					THEN	explicit_subscription_create_response0
 IF	PUBLISH	AND	Pubs_Invalid_Request_Message_cr			THEN	Invalid_Request_Message_Response
@@ -264,7 +265,7 @@ IF	SUBSCRIPTION_CERT_ERROR					THEN	subscription_retrieve_cert_error
 IF	SUBSCRIPTION_SPINE_ERROR					THEN	subscription_retrieve_spine_error
 IF	OTHER_SUBSCRIPTION					THEN	subscription_retrieve_no_record_found
 IF	Conversion_Error					THEN	Conversion_Error_Response
-IF	Get_By_ID_Bad_Request 					THEN	Search_Bad_Request_Response
+IF	Get_By_ID_Bad_Request					THEN	Search_Bad_Request_Response
 IF	Invalid_NHS_Number_nhsno					THEN	Invalid_NHS_Number_Response
 IF	Invalid_Parameter_nhsno					THEN	Invalid_Parameter_Response
 IF	No_Record_Found_nhsno					THEN	No_Record_Found_Response
@@ -276,8 +277,8 @@ IF	Invalid_Resource_ID					THEN	Invalid_Resource_Response
 IF	No_Record_Found_Id					THEN	No_Record_Found_Id_Response
 IF	Missing_Or_Invalid_Header_id					THEN	Missing_Or_Invalid_Header_Response
 IF	Unsupported_Media_Type_id					THEN	Unsupported_Media_Type_Response
-IF	Reference_Not_Found_id 					THEN	Reference_Not_Found_Response
-IF	Bad_Request_Id					THEN  	Bad_Request_Response
+IF	Reference_Not_Found_id					THEN	Reference_Not_Found_Response
+IF	Bad_Request_Id					THEN	Bad_Request_Response
 IF	ASID_Check_Failed_id					THEN	ASID_Check_Failed_Response
 IF	Access_Denied_id					THEN	Access_Denied_Response
 IF	passthrough					THEN	notFoundNEMS_Response
@@ -293,7 +294,7 @@ IF	Conversion_Error					THEN	Conversion_Error_Response
 IF	Get_By_ID_Bad_Request					THEN	Delete_Bad_Request_Response
 IF	Delete_Success					THEN	Delete_Success_Response
 IF	Invalid_NHS_Number_nhsno					THEN	Invalid_NHS_Number_Response
-IF	Invalid_Parameter_nhsno					THEN 	Invalid_Parameter_Response
+IF	Invalid_Parameter_nhsno					THEN	Invalid_Parameter_Response
 IF	No_Record_Found_nhsno					THEN	No_Record_Found_Response
 IF	Missing_Or_Invalid_Header_nhsno					THEN	Missing_Or_Invalid_Header_Response
 IF	Unsupported_Media_Type_nhsno					THEN	Unsupported_Media_Type_Response
