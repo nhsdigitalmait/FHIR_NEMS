@@ -26,10 +26,18 @@
 			<subscriptionRuleType code="UHV_POSTCODE_LACODE" text="'This will be a match if the Local Authority Code responsible for the geographical location of the patients post code matches the code within the “Organization.identifier” criteria component.'"/>
 			<subscriptionRuleType code="CHO_GP_CCG" text="'This will be a match if the CCG Code responsible for the geographical location of the patients registered GP matches the code within the “Organization.identifier” criteria component.'"/>
 			<subscriptionRuleType code="CHO_POSTCODE_CCG" text="'This will be a match if the CCG Code responsible for the geographical location of the patients postcode matches the code within the “Organization.identifier” criteria component.'"/>
-			<subscriptionRuleType code="HSS" text="'National subscription, subscription criteria is a match for any patients in England.'"/>
+			<subscriptionRuleType code="COUNTRYCODE" text="'National subscription, subscription criteria is a match for any patients in the country specified in the Organizaiton.identifier criteria element.'"/>
 		</subscriptionRuleTypes>
 		<events>
 			<event name="PDS Change of GP" code="pds-change-of-gp-1" publication="F" subscription="T"/>
 		</events>
+		<countrycodes>
+			<countrycode code="E92000001" text="'England'"/>
+			<countrycode code="W92000004" text="'Wales'"/>
+			<countrycode code="S92000003" text="'Scotland'"/>
+			<countrycode code="N92000002" text="'Northern Ireland'"/>
+			<countrycode code="L93000001" text="'Channel Islands'"/>
+			<countrycode code="M83000003" text="'Isle of Man'"/>
+		</countrycodes>
 	</NEMS>
 </reference>

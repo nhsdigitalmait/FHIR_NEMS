@@ -170,17 +170,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -281,17 +299,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -376,10 +412,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -464,17 +509,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -568,17 +631,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -671,17 +752,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -758,10 +857,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -838,17 +946,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -948,10 +1074,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1019,17 +1154,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 								</xsl:when>
 								<!--END-->
 								<xsl:otherwise>
@@ -1097,10 +1250,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1168,17 +1330,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1270,10 +1450,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1333,17 +1522,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
-									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									</xsl:call-template>									
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1403,10 +1610,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1466,17 +1682,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
-									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									</xsl:call-template>									
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1559,10 +1793,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1613,17 +1856,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
-									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									</xsl:call-template>									
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1674,10 +1935,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1752,10 +2022,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1798,17 +2077,35 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
-									<tr>
-										<td style="color:#008000">
-											<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
-											<xsl:value-of select="$c_Organization"/>
-											<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
-										</td>
-									</tr>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, validating Organization.identifier against allowable values</xsl:text>
+												</td>
+											</tr>
+											<xsl:call-template name="nems_ref_check">
+												<xsl:with-param name="delim" select="$delim"/>
+												<xsl:with-param name="name" select="$organization"/>
+												<xsl:with-param name="list_name" select="$c_Organization"/>
+												<xsl:with-param name="ref_xpath" select="$supportedevents//countrycode"/>
+												<xsl:with-param name="ref_attribute" select="'code'"/>
+											</xsl:call-template>
+										</xsl:when>
+										<xsl:otherwise>
+											<tr>
+												<td style="color:#008000">
+													<xsl:text>&amp;Organization.identifier is present and of value '</xsl:text>
+													<xsl:value-of select="$c_Organization"/>
+													<xsl:text>' this value can not be automatically validated by the Test Harness</xsl:text>
+												</td>
+											</tr>
+										</xsl:otherwise>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1851,10 +2148,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<xsl:choose>
 										<xsl:when test="matches($c_tag,'^[A-Za-z0-9,|_-]{0,100}$')">
 											<tr>
@@ -1920,10 +2226,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
@@ -1965,10 +2280,19 @@
 									<xsl:call-template name="nems_ref_check">
 										<xsl:with-param name="delim" select="$delim"/>
 										<xsl:with-param name="name" select="$subscriptionRuleType"/>
-										<xsl:with-param name="list_name" select="replace($c_tokens[6],$subscriptionRuleType,'')"/>
+										<xsl:with-param name="list_name" select="$c_subscriptionRuleType"/>
 										<xsl:with-param name="ref_xpath" select="$supportedevents//subscriptionRuleType"/>
 										<xsl:with-param name="ref_attribute" select="'code'"/>
 									</xsl:call-template>
+									<xsl:choose>
+										<xsl:when test="$c_subscriptionRuleType = 'COUNTRYCODE'">
+											<tr>
+												<td style="color:#900000">
+													<xsl:text>subscriptionRuleType=COUNTRYCODE, required Organization.identifier NOT found ERROR</xsl:text>
+												</td>
+											</tr>
+										</xsl:when>
+									</xsl:choose>
 									<!--END-->
 								</xsl:when>
 								<xsl:otherwise>
